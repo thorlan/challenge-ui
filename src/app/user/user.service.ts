@@ -17,7 +17,7 @@ export class UserService {
       });
 
     constructor (private http: Http) {
-
+        
     }
 
     public getUser(userName: string): Promise<User> {
