@@ -5,7 +5,7 @@ app.use(express.static(__dirname + '/dist'));
 
 app.get('/*', function(req, res) {
   
-    res.sendFile(__dirname + '/dist/ShawAndPartners/index.html');
+    res.sendFile(__dirname + '/dist/index.html');
 }); 
 
 app.listen(process.env.PORT || 4200);
