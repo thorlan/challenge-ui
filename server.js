@@ -1,4 +1,15 @@
-var express = require('express');
-var app = express();
-app.use(express.static(__dirname + '/dist/ShawAndPartners/index.html')); //aqui você define onde está o index.html da sua aplicação.
-app.listen(process.env.PORT || 3000);
+const express = require('express');
+const path = require('path');
+
+const app = express();
+
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/ShawAndPartners'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/ShawAndPartners/index.html'));
+});
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 4200);
