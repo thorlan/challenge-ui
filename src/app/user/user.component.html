@@ -1,0 +1,23 @@
+<p-panel header="User">
+    <a routerLink="">Back to Users</a>
+<p-table [value]="users">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>ID</th>
+          <th>Login</th>
+          <th>Profile</th>
+          <th>Date of login creation</th>
+          <th> - </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-user>
+      <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.login }}</td>
+          <td>{{ user.url }}</td>
+          <td>{{ user.created_at }}</td>
+          <td> <a [routerLink]="['/user/repository' , user.login]"> View Repositories</a> </td>
+      </tr>
+  </ng-template>
+</p-table>
+</p-panel>

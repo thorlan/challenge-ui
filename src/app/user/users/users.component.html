@@ -1,0 +1,23 @@
+<p-panel header="Users">
+<p-table [value]="users" [paginator]="true" [rows]="30"  [responsive]="true" [lazy]="true" [totalRecords]="totalRegistros"
+(onLazyLoad)="changePage($event)">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Login</th>
+          <th>ID</th>
+          <th>Profile</th>
+          <th>Date of login creation</th>
+          <th> - </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-user>
+      <tr>
+          <td>{{ user.login }}</td>
+          <td>{{ user.id }}</td>
+          <td>{{ user.url }}</td>
+          <td>{{ user.created_at }}</td>
+          <td> <a [routerLink]="['/user' , user.login]"> View Details</a> </td>
+      </tr>
+  </ng-template>
+</p-table>
+</p-panel>
