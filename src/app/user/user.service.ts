@@ -30,7 +30,7 @@ export class UserService {
 
     public getUsers(page: number): Promise<any> {
 
-        return  this.http.get('http://localhost:8080/api/users?since=' + page)
+        return  this.http.get(`${this.URL}?since=${page}`)
               .toPromise()
               .then( (response: any) => {
                   const responseJson = response.json();
